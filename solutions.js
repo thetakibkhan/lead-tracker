@@ -19,12 +19,25 @@ function firstNonRepeatingChar(text) {
   return null;
 }
 
-function findTwoSum(numbers, target) {
-  for (let i = 0; i < numbers.length; i += 1) {
-    for (let j = i + 1; j < numbers.length; j += 1) {
-      if (numbers[i] + numbers[j] === target) {
-        return [i, j];
-      }
+function findTwoSum(nums, target) {
+  const arr = nums.map((num, index) => ({ num, index }));
+
+  arr.sort((a, b) => a.num - b.num);
+
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (left < right) {
+    const sum = arr[left].num + arr[right].num;
+
+    if (sum === target) {
+      return [arr[left].index, arr[right].index];
+    }
+
+    if (sum < target) {
+      left++;
+    } else {
+      right--;
     }
   }
 
