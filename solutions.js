@@ -7,7 +7,7 @@ function firstNonRepeatingChar(text) {
 
     for (let j = 0; j < characters.length; j += 1) {
       if (characters[j].toLowerCase() === current) {
-        count += 1;
+        count ++;
       }
     }
 
